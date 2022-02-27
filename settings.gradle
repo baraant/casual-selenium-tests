@@ -1,0 +1,4 @@
+rootProject.name = 'casual-selenium-tests'
+
+include 'common'
+include 'tests'
