@@ -4,9 +4,9 @@ plugins {
     id 'org.springframework.boot' version '2.6.4'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-
-def springBootVersion = '2.6.4'
+ext {
+    targetJava = JavaVersion.VERSION_1_8
+}
 
 allprojects {
     group 'com.github.baraant'
@@ -25,6 +25,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+subprojects {
+    apply plugin: 'io.spring.dependency-management'
+
+    group 'com.github.baraant'
+    sourceCompatibility = "$targetJava"
 }
 
 test {
